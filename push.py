@@ -12,7 +12,7 @@ print ('filename: ', filename)
 
 current_date = datetime .datetime.now()
 # берем вчера для тестирования
-current_date = current_date.replace(day = current_date.day-10)
+next_day_date = current_date.replace(day = current_date.day + 1)
 #print(current_date)
 
 driver = 'DRIVER={ODBC Driver 17 for SQl Server}'
@@ -27,11 +27,12 @@ print(conn_str)
 script = """
     SELECT distinct StringValue  FROM MailingToCustomers, CustomerPropertyValues
     where [MailingToCustomers].CustomerID=CustomerPropertyValues.customerid
-    and DateAdded > '{}'
+    and DateAdded > '{}' and DateAdded < '{}'
     and ChequeID is null
     and propertyid = 5
     and StringValue is not null
-    """.format(current_date.strftime('%Y-%d-%m'))
+    """.format(current_date.strftime('%Y-%d-%m'),
+                                            next_day_date.strftime('%Y-%d-%m'))
 
 
 print(script)
