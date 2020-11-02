@@ -16,9 +16,9 @@ def write_log(record, filename=filename):
 
 
 print('Старт')
-for i in range(30):
+while True:
     try:
-        r = requests.get(url, timeout=5)
+        r = requests.get(url, timeout=30)
     except Exception as e:
         write_log(e)
     else:
