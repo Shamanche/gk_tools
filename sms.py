@@ -36,22 +36,22 @@ def get_store_id(conn, sms_date, phone):
     rows = cursor.fetchall()
     return rows
 
-def test_get_store_id(conn):
-    sql_request = '''
-        set dateformat ymd
-        select distinct Transactions.StoreID
-        from Transactions, DiscountCards, Accounts, CustomerPhones
-        where Transactions.TransactionTime between '2020-01-20' and '2020-02-23'
-        	and CustomerPhones.CustomerID = Accounts.CustomerID
-        	and Accounts.AccountID = DiscountCards.AccountID
-        	and DiscountCards.DiscountCardID = Transactions.DiscountCardID
-        	and CustomerPhones.Phone = '79183195479'
-            '''
+##def test_get_store_id(conn):
+##    sql_request = '''
+##        set dateformat ymd
+##        select distinct Transactions.StoreID
+##        from Transactions, DiscountCards, Accounts, CustomerPhones
+##        where Transactions.TransactionTime between '2020-01-20' and '2020-02-23'
+##        	and CustomerPhones.CustomerID = Accounts.CustomerID
+##        	and Accounts.AccountID = DiscountCards.AccountID
+##        	and DiscountCards.DiscountCardID = Transactions.DiscountCardID
+##        	and CustomerPhones.Phone = '79183195479'
+##            '''
 ##    print(sql_request)
-    cursor = conn.cursor()
-    cursor.execute(sql_request)
-    rows = cursor.fetchall()
-    return rows
+##    cursor = conn.cursor()
+##    cursor.execute(sql_request)
+##    rows = cursor.fetchall()
+##    return rows
 
 
 def parse_sms_csv(filename):
