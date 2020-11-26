@@ -1,0 +1,9 @@
+certifi==2020.6.20
+chardet==3.0.4
+idna==2.10
+keyring==21.5.0
+pymssql==2.1.5
+pyodbc==4.0.30
+pywin32-ctypes==0.2.0
+requests==2.24.0
+urllib3==1.25.11
